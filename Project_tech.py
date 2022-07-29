@@ -22,6 +22,9 @@ def main():
                     new_id = id
                     coast = int(input("Введите цену нового товара -> "))
                     techs.update({name: [address, owner, new_id, coast]})
+                    with open('tech.txt', 'a') as file_object:
+                        for key, val in techs.items():
+                            file_object.write('{}:{}\n'.format(key, val))
                 elif choose == 2:
                     name = input("Введите название товара -> ")
                     if name in techs.keys():
